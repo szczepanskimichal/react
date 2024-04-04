@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 // import './App.css';
 
-import { set } from "mongoose";
+// import { set } from "mongoose";
 
 // function App() {
 //   return (
@@ -12,7 +12,7 @@ import { set } from "mongoose";
 //           Edit <code>src/App.js</code> and save to reload.
 //         </p>
 //         <a
-//           className="App-link"
+//           className="App-link"s
 //           href="https://reactjs.org"
 //           target="_blank"
 //           rel="noopener noreferrer"
@@ -659,15 +659,76 @@ import { set } from "mongoose";
 //     );
 //   }
 // }
+// import { useState } from "react";
+
+// export default function FeedbackForm() {
+//   function handleClick() {
+//     const name = prompt("What is your name?");
+//     alert(`Hello, ${name}!`);
+//   }
+//   // const [name, setName] = useState("");
+
+//   // function handleClick() {
+//   //   setName(prompt("What is your name?"));
+//   //   alert(`Hello, ${name}!`);
+//   // }
+
+//   return <button onClick={handleClick}>Greet</button>;
+// }
+// import { useState } from "react"; // Importujemy hook useState z biblioteki react
+
+// export default function Form() {
+//   // Eksportujemy domyślnie komponent Form
+//   const [isSent, setIsSent] = useState(false); // Tworzymy stan isSent, który mówi nam, czy wiadomość została wysłana
+//   const [message, setMessage] = useState("Hi!"); // Tworzymy stan message, który przechowuje aktualną wiadomość
+
+//   if (isSent) {
+//     // Jeśli wiadomość została wysłana
+//     return <h1>Your message is on its way!</h1>; // Wyświetlamy informację o wysłaniu wiadomości
+//   }
+
+//   // Jeśli wiadomość nie została jeszcze wysłana, wyświetlamy formularz
+//   return (
+//     <form
+//       onSubmit={(e) => {
+//         // Po wysłaniu formularza
+//         e.preventDefault(); // Zapobiegamy domyślnej akcji przeglądarki (odświeżenie strony)
+//         setIsSent(true); // Ustawiamy stan isSent na true, informując, że wiadomość została wysłana
+//         sendMessage(message); // Wywołujemy funkcję sendMessage z aktualną wiadomością
+//       }}
+//     >
+//       <textarea // Pole tekstowe do wpisania wiadomości
+//         placeholder="Message" // Tekst wyświetlany, gdy pole jest puste
+//         value={message} // Aktualna wartość pola tekstowego to stan message
+//         onChange={(e) => setMessage(e.target.value)} // Po zmianie wartości pola tekstowego, aktualizujemy stan message
+//       />
+//       <button type="submit">Send</button> // Przycisk do wysłania formularza
+//     </form>
+//   );
+// }
+
+// function sendMessage(message) {
+//   // Funkcja do wysyłania wiadomości
+//   // ...
+// }
 import { useState } from "react";
 
-export default function FeedbackForm() {
-  const [name, setName] = useState("");
+export default function Counter() {
+  const [number, setNumber] = useState(0);
 
-  function handleClick() {
-    setName(prompt("What is your name?"));
-    alert(`Hello, ${name}!`);
-  }
-
-  return <button onClick={handleClick}>Greet</button>;
+  return (
+    <>
+      <h1>{number}</h1>
+      <button
+        onClick={() => {
+          setNumber(number + 1);
+          // setNumber(number + 1);
+          // setNumber(number + 1);
+        }}
+      >
+        increment
+      </button>
+      <button onClick={() => setNumber(number - 1)}>decrement</button>
+    </>
+  );
 }
