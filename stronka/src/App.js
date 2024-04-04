@@ -724,6 +724,7 @@ export default function Counter() {
           setNumber(number + 1);
           // setNumber(number + 1);
           // setNumber(number + 1);
+          alert("You clicked me!");
         }}
       >
         increment
