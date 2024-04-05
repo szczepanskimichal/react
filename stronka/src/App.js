@@ -711,25 +711,619 @@
 //   // Funkcja do wysyłania wiadomości
 //   // ...
 // }
-import { useState } from "react";
+// import { useState } from "react";
 
-export default function Counter() {
-  const [number, setNumber] = useState(0);
+// export default function Counter() {
+//   const [number, setNumber] = useState(0);
 
-  return (
-    <>
-      <h1>{number}</h1>
-      <button
-        onClick={() => {
-          setNumber(number + 1);
-          // setNumber(number + 1);
-          // setNumber(number + 1);
-          alert("You clicked me!");
-        }}
-      >
-        increment
-      </button>
-      <button onClick={() => setNumber(number - 1)}>decrement</button>
-    </>
-  );
-}
+//   return (
+//     <>
+//       <h1>{number}</h1>
+//       <button
+//         onClick={() => {
+//           if (number === 3) {
+//             alert("You clicked me 3 times, i hope yoou will learn quick!");
+//             setTimeout(() => {
+//               alert("This is an additional aler after 5 seconds");
+//             }, 5000);
+//           }
+//           setNumber(number + 1);
+//         }}
+//       >
+//         increment
+//       </button>
+//       <button onClick={() => setNumber(number - 1)}>decrement</button>
+//     </>
+//   );
+// }
+
+// import { useState } from "react";
+
+// export default function Form() {
+//   const [to, setTo] = useState("Michal");
+//   const [message, setMessage] = useState("hello ");
+
+//   function handleSubmit(e) {
+//     e.preventDefault();
+//     setTimeout(() => {
+//       alert(`Message sent to ${to}: ${message}`);
+//     }, 3000);
+//   }
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <label>
+//         To:{" "}
+//         <select value={to} onChange={(e) => setTo(e.target.value)}>
+//           <option value="Michal">Michal</option>
+//           <option value="Ada">Ada</option>
+//           <option value="Mija">Mija</option>
+//         </select>
+//       </label>
+//       <textarea
+//         placeholder="Message"
+//         value={message}
+//         onChange={(e) => setMessage(e.target.value)}
+//       ></textarea>
+//       <button type="submit">Submit</button>
+//     </form>
+//   );
+// }
+
+// //SWIATLA RUCHU
+// import { useState } from "react";
+
+// export default function TrafficLight() {
+//   const [walk, setWalk] = useState(true);
+//   function handleClick() {
+//     setWalk(!walk);
+//     alert(walk ? "Walk" : "Stop");
+//   }
+//   return (
+//     <>
+//       <button onClick={handleClick}>Change to {walk ? "Stop" : "Walk"}</button>
+//       <h1 style={{ color: walk ? "green" : "red" }}>
+//         {walk ? "Walk" : "Stop"}
+//       </h1>
+//     </>
+//   );
+// }
+
+// import { useState } from "react";
+
+// export default function Counter() {
+//   const [number, setNumber] = useState(0);
+
+//   return (
+//     <>
+//       <h1>{number}</h1>
+//       <button
+//         onClick={() => {
+//           setNumber(number + 5);
+//           setNumber((number) => number + 1);
+//           // setNumber(42);
+//         }}
+//       >
+//         increase the number
+//       </button>
+//     </>
+//   );
+// }
+
+// import { useState } from "react";
+
+// export default function RequestedTracker() {
+//   const [pending, setPending] = useState(0);
+//   const [completed, setCompleted] = useState(0);
+
+//   async function handleBuy() {
+//     setPending((p) => p + 1);
+//     await delay(3000);
+//     setPending((p) => p - 1);
+//     setCompleted((c) => c + 1);
+//   }
+//   return (
+//     <>
+//       <h3>Pending: {pending}</h3>
+//       <h3>Completed: {completed}</h3>
+//       <button onClick={handleBuy}>Buy</button>
+//     </>
+//   );
+//   function delay(ms) {
+//     return new Promise((resolve) => {
+//       setTimeout(resolve, ms);
+//     });
+//   }
+// }
+
+// import { useState } from "react";
+// export default function MovingDot() {
+//   const [position, setPosition] = useState({
+//     x: 0,
+//     y: 0,
+//   });
+//   return (
+//     <div
+//       onPointerMove={(e) => {
+//         setPosition({
+//           x: e.clientX,
+//           y: e.clientY,
+//         });
+//       }}
+//       style={{
+//         position: "relative",
+//         width: "100vw",
+//         height: "100vh",
+//       }}
+//     >
+//       <div
+//         style={{
+//           position: "absolute",
+//           backgroundColor: "red",
+//           borderRadius: "50%",
+//           transform: `translate(${position.x}px, ${position.y}px)`,
+//           left: 1,
+//           top: 2,
+//           width: 20,
+//           height: 20,
+//         }}
+//       />
+//     </div>
+//   );
+// }
+
+// import { useState } from "react";
+
+// export default function Form() {
+//   const [person, setPerson] = useState({
+//     firstName: "Mija",
+//     lastName: "Cziczi",
+//     email: "mija@development.com",
+//   });
+
+//   function handleFirstNameChange(e) {
+//     setPerson({
+//       ...person,
+//       firstName: e.target.value,
+//     });
+//   }
+
+//   function handleLastNameChange(e) {
+//     setPerson({
+//       ...person,
+//       lastName: e.target.value,
+//     });
+//   }
+
+//   function handleEmailChange(e) {
+//     setPerson({
+//       ...person,
+//       email: e.target.value,
+//     });
+//   }
+//   return (
+//     <>
+//       <label>
+//         First name:
+//         <input value={person.firstName} onChange={handleFirstNameChange} />
+//       </label>
+//       <label>
+//         Last name:
+//         <input value={person.lastName} onChange={handleLastNameChange} />
+//       </label>
+//       <label>
+//         Email:
+//         <input value={person.email} onChange={handleEmailChange} />
+//       </label>
+//       <p>
+//         {person.firstName} {person.lastName} ({person.email})
+//       </p>
+//     </>
+//   );
+// }
+
+// import { useState } from "react";
+
+// export default function Form() {
+//   const [person, setPerson] = useState({
+//     firstName: "Barbara",
+//     lastName: "Hepworth",
+//     email: "bhepworth@sculpture.com",
+//   });
+
+//   function handleChange(e) {
+//     setPerson({
+//       ...person,
+//       [e.target.name]: e.target.value,
+//     });
+//   }
+
+//   return (
+//     <>
+//       <label>
+//         First name:
+//         <input
+//           name="firstName"
+//           value={person.firstName}
+//           onChange={handleChange}
+//         />
+//       </label>
+//       <label>
+//         Last name:
+//         <input
+//           name="lastName"
+//           value={person.lastName}
+//           onChange={handleChange}
+//         />
+//       </label>
+//       <label>
+//         Email:
+//         <input name="email" value={person.email} onChange={handleChange} />
+//       </label>
+//       <p>
+//         {person.firstName} {person.lastName} ({person.email})
+//       </p>
+//     </>
+//   );
+// }
+
+// import { useState } from "react";
+
+// export default function Form() {
+//   const [person, setPerson] = useState({
+//     name: "Niki de Saint Phalle",
+//     artwork: {
+//       title: "Blue Nana",
+//       city: "Hamburg",
+//       image: "https://i.imgur.com/Sd1AgUOm.jpg",
+//     },
+//   });
+
+//   function handleNameChange(e) {
+//     setPerson({
+//       ...person,
+//       name: e.target.value,
+//     });
+//   }
+
+//   function handleTitleChange(e) {
+//     setPerson({
+//       ...person,
+//       artwork: {
+//         ...person.artwork,
+//         title: e.target.value,
+//       },
+//     });
+//   }
+
+//   function handleCityChange(e) {
+//     setPerson({
+//       ...person,
+//       artwork: {
+//         ...person.artwork,
+//         city: e.target.value,
+//       },
+//     });
+//   }
+
+//   function handleImageChange(e) {
+//     setPerson({
+//       ...person,
+//       artwork: {
+//         ...person.artwork,
+//         image: e.target.value,
+//       },
+//     });
+//   }
+
+//   return (
+//     <>
+//       <label>
+//         Name:
+//         <input value={person.name} onChange={handleNameChange} />
+//       </label>
+//       <label>
+//         Title:
+//         <input value={person.artwork.title} onChange={handleTitleChange} />
+//       </label>
+//       <label>
+//         City:
+//         <input value={person.artwork.city} onChange={handleCityChange} />
+//       </label>
+//       <label>
+//         Image:
+//         <input value={person.artwork.image} onChange={handleImageChange} />
+//       </label>
+//       <p>
+//         <i>{person.artwork.title}</i>
+//         {" by "}
+//         {person.name}
+//         <br />
+//         (located in {person.artwork.city})
+//       </p>
+//       <img src={person.artwork.image} alt={person.artwork.title} />
+//     </>
+//   );
+// }
+
+// import { useState } from "react";
+
+// export default function Scoreboard() {
+//   const [player, setPlayer] = useState({
+//     firstName: "Ranjani",
+//     lastName: "Shettar",
+//     score: 10,
+//   });
+
+//   function handlePlusClick() {
+//     setPlayer({
+//       ...player,
+//       score: player.score + 1,
+//     });
+//   }
+
+//   function handleFirstNameChange(e) {
+//     setPlayer({
+//       ...player,
+//       firstName: e.target.value,
+//     });
+//   }
+
+//   function handleLastNameChange(e) {
+//     setPlayer({
+//       ...player,
+//       lastName: e.target.value,
+//     });
+//   }
+
+//   return (
+//     <>
+//       <label>
+//         Score: <b>{player.score}</b>{" "}
+//         <button onClick={handlePlusClick}>+1</button>
+//       </label>
+//       <label>
+//         First name:
+//         <input value={player.firstName} onChange={handleFirstNameChange} />
+//       </label>
+//       <label>
+//         Last name:
+//         <input value={player.lastName} onChange={handleLastNameChange} />
+//       </label>
+//     </>
+//   );
+// }
+// import { useImmer } from "use-immer";
+// import { useState } from "react";
+// import Box from "./Box";
+// import Background from "./Background";
+// import { useImmer } from "use-immer";
+
+// const initialPosition = { x: 0, y: 0 };
+
+// export default function Canvas() {
+//   const [shape, setShape] = useImmer({
+//     position: initialPosition,
+//     color: "red",
+//   });
+
+//   // function handleMove(dx, dy) {
+//   //   setShape((prevShape) => ({
+//   //     ...prevShape,
+//   //     position: {
+//   //       x: prevShape.position.x + dx,
+//   //       y: prevShape.position.y + dy,
+//   //     },
+//   //   }));
+//   function Canvas() {
+//     const [shape, updateShape] = useImmer({
+//       position: initialPosition,
+//       color: "red",
+//     });
+
+//     function handleMove(dx, dy) {
+//       updateShape((draft) => {
+//         draft.position.x += dx;
+//         draft.position.y += dy;
+//       });
+//     }
+//   }
+
+//   // function handleChangeColor(e) {
+//   //   setShape((prevShape) => ({
+//   //     ...prevShape,
+//   //     color: e.target.value,
+//   //   }));
+//   // }
+//   function handleChangeColor(e) {
+//     updateShape((draft) => {
+//       draft.color = e.target.value;
+//     });
+//   }
+
+//   return (
+//     <>
+//       <select value={shape.color} onChange={handleChangeColor}>
+//         <option value="red">Red</option>
+//         <option value="green">Green</option>
+//         <option value="blue">Blue</option>
+//       </select>
+//       <Background position={initialPosition} />
+//       <Box color={shape.color} position={shape.position} onMove={handleMove}>
+//         Drag me!
+//       </Box>
+//     </>
+//   );
+// }
+
+// import { useState } from "react";
+
+// let nextId = 0;
+
+// export default function List() {
+//   const [name, setName] = useState("");
+//   const [artists, setArtists] = useState([]);
+
+//   return (
+//     <>
+//       <h1>Inspiring sculptors:</h1>
+//       <input value={name} onChange={(e) => setName(e.target.value)} />
+//       <button
+//         onClick={() => {
+//           setArtists([...artists, { id: nextId++, name: name }]);
+//         }}
+//       >
+//         Add
+//       </button>
+
+//       <ul>
+//         {artists.map((artist) => (
+//           <li key={artist.id}>
+//             {artist.name}{" "}
+//             <button
+//               onClick={() => {
+//                 setArtists(artists.filter((a) => a.id !== artist.id));
+//               }}
+//             >
+//               Delete
+//             </button>
+//           </li>
+//         ))}
+//       </ul>
+//     </>
+//   );
+// }
+
+// import { useState } from "react";
+
+// let initialShapes = [
+//   { id: 0, type: "circle", x: 50, y: 100 },
+//   { id: 1, type: "square", x: 150, y: 100 },
+//   { id: 2, type: "circle", x: 250, y: 100 },
+// ];
+// export default function ShapeEditor() {
+//   const [shapes, setShapes] = useState(initialShapes);
+
+//   function handleClick() {
+//     const nextShapes = shapes.map((shape) => {
+//       if (shape.type === "square") {
+//         // No change
+//         return shape;
+//       } else {
+//         // Return a new circle 50px below
+//         return {
+//           ...shape,
+//           y: shape.y + 50,
+//         };
+//       }
+//     });
+//     // Re-render with the new array
+//     setShapes(nextShapes);
+//   }
+
+//   return (
+//     <>
+//       <button onClick={handleClick}>Move circles down!</button>
+//       {shapes.map((shape) => (
+//         <div
+//           key={shape.id}
+//           style={{
+//             background: "purple",
+//             position: "absolute",
+//             left: shape.x,
+//             top: shape.y,
+//             borderRadius: shape.type === "circle" ? "50%" : "",
+//             width: 30,
+//             height: 30,
+//           }}
+//         />
+//       ))}
+//     </>
+//   );
+// }
+
+// import { useState } from "react";
+
+// const initialList = [
+//   { id: 0, title: "Big Bellies" },
+//   { id: 1, title: "Lunar Landscape" },
+//   { id: 2, title: "Terracotta Army" },
+// ];
+
+// export default function List() {
+//   const [list, setList] = useState(initialList);
+
+//   function handleClick() {
+//     const nextList = [...list];
+//     nextList.reverse();
+//     setList(nextList);
+//   }
+//   return (
+//     <>
+//       <button onClick={handleClick}>Reverse</button>
+//       <ul>
+//         {list.map((item) => (
+//           <li key={item.id}>{item.title}</li>
+//         ))}
+//       </ul>
+//     </>
+//   );
+// }
+
+// import { useState } from "react";
+
+// let nextId = 3;
+// const initialList = [
+//   { id: 0, title: "Big Bellies", seen: false },
+//   { id: 1, title: "Lunar Landscape", seen: false },
+//   { id: 2, title: "Terracotta Army", seen: true },
+// ];
+
+// export default function BucketList() {
+//   const [myList, setMyList] = useState(initialList);
+//   const [yourList, setYourList] = useState(initialList);
+
+//   function handleToggleMyList(artworkId, nextSeen) {
+//     const myNextList = [...myList];
+//     const artwork = myNextList.find((a) => a.id === artworkId);
+//     artwork.seen = nextSeen;
+//     setMyList(myNextList);
+//   }
+
+//   function handleToggleYourList(artworkId, nextSeen) {
+//     const yourNextList = [...yourList];
+//     const artwork = yourNextList.find((a) => a.id === artworkId);
+//     artwork.seen = nextSeen;
+//     setYourList(yourNextList);
+//   }
+
+//   return (
+//     <>
+//       <h1>Art Bucket List</h1>
+//       <h2>My list of art to see:</h2>
+//       <ItemList artworks={myList} onToggle={handleToggleMyList} />
+//       <h2>Your list of art to see:</h2>
+//       <ItemList artworks={yourList} onToggle={handleToggleYourList} />
+//     </>
+//   );
+// }
+
+// function ItemList({ artworks, onToggle }) {
+//   return (
+//     <ul>
+//       {artworks.map((artwork) => (
+//         <li key={artwork.id}>
+//           <label>
+//             <input
+//               type="checkbox"
+//               checked={artwork.seen}
+//               onChange={(e) => {
+//                 onToggle(artwork.id, e.target.checked);
+//               }}
+//             />
+//             {artwork.title}
+//           </label>
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// }
